@@ -1,0 +1,36 @@
+|<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arreglos</title>
+  </head>
+  <body>
+    <script>
+      //Creando un Arreglo
+      const arreglo = [1, 2, 3, 4, 5, 6, 7];
+
+      //Para acceder a los arreglos es mediante su índice contando desde cero.
+      console.log(arreglo[2]); //3
+
+      //Modificar un elemento dentro del arreglo accediento por su índice
+      arreglo[2] = 5;
+      console.log(arreglo); //1, 3, 5
+
+      //Con el .push se agrega un elemento al final
+      arreglo.push(9);
+      console.log(arreglo);
+
+      //Con el .pop quitamos el último elemento del arreglo
+      arreglo.pop();
+      console.log(arreglo);
+
+      //El .length nos muestra la longitud de elementos, cuantos hay
+      console.log(arreglo.length);
+
+      //Ver una posición negativa
+      console.log(arreglo.at(-1)); //último elemento
+      console.log(arreglo.at(-2)); //ante-último elemento
+    </script>
+  </body>
+</html>

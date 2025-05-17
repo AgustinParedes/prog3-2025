@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objetos Literales</title>
+  </head>
+  <body>
+    <script>
+      //Así se crea un objeto, característica: tiene Propiedades: atributo - valor
+      const objeto = {
+        texto: "nacimiento",
+        numero: 1999,
+        "un valor": 777.777,
+
+        //MÉTODOS dentro de objetos: de manera común
+        sumar(a, b) {
+          return a + b;
+        },
+
+        //MËTODO con función anónima
+        restar: function (c, d) {
+          return c - d; //Falta agregar método con ".this"
+        },
+
+        //MÉTODO función flecha
+        multiplicar: (a, b) => {
+          console.log("Con función =>: ", this.numero);
+          return a * b;
+        },
+      };
+
+      //Accedo a la propiedad de esta manera
+      console.log(objeto.texto);
+      console.log(objeto.numero);
+      console.log(objeto);
+
+      //Modificar propiedad dentro del objeto
+      objeto.texto = "mensaje modificado";
+      console.log(objeto.texto);
+
+      //Agregar atributos del objeto
+      objeto.sumatoria = 39;
+      console.log(objeto);
+
+      //Acceder a las propiedades de objetos de manera ALTERNATIVA
+      console.log(objeto["un valor"]); //Usando corchetes
+
+      //Invocar al MÉTODO "sumar"
+      console.log(objeto.sumar(6, 9));
+
+      //Invocar al MËTODO "restar"
+      console.log(objeto.restar(17, 8));
+
+      //Invocar al MÉTODO "multiplicar"
+      console.log(objeto.multiplicar(8, 2));
+    </script>
+  </body>
+</html>

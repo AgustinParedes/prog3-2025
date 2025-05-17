@@ -1,0 +1,13 @@
+.encabezado {
+  color: yellow;
+}
+
+.nombre {
+  background-color: rgb(91, 91, 91);
+}
+
+h2.apellido {
+  color: blue;
+  font-size: 20px;
+  text-align: center;
+}

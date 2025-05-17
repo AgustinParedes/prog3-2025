@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plantillas</title>
+  </head>
+  <body>
+    <script>
+      const num1 = 36;
+      const num2 = 17;
+
+      //Concatenación de string
+      console.log(" Número " + num1 + " Número " + num2);
+
+      //Plantilla
+      console.log(`Número: ${num1} + Número: ${num2}`);
+      //Realizando operaciones (+ - X %)
+      console.log(`Suma: ${num1 + num2}`);
+      //Hecho mediante una Función
+      function sumar(a, b) {
+        return "Mediante Función: " + (a + b);
+      }
+      console.log(sumar(num1, num2));
+    </script>
+  </body>
+</html>
