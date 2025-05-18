@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Acceso a elementos de DOM</title>
+    <style type="text/css">
+      .negrita {
+        font-weight: bold;
+      }
+      .verde {
+        color: green;
+      }
+      .fondo {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="enc">Encabezado</h1>
+    <p id="texto">Párrafo</p>
+    <p id="texto2" class="verde negrita">Otro Párrafo</p>
+    <a id="link" href="#">Enlace a Google</a>
+
+    <script>
+      //Acceso mediante ID
+      const encabezado = document.getElementById("enc");
+      console.log(encabezado.textContent); // textContent = contenido que tiene dentro el elemento
+
+      //Modificando el contenido del elemento
+      const texto = document.getElementById("texto");
+      texto.innerHTML = "Texto modificado desde JS";
+
+      //Modificar o leer atributos del elemento (<a>)
+      const link = document.getElementById("link");
+      console.log(link.getAttribute("href"));
+      link.setAttribute("href", "https://www.google.com/");
+      //   link.removeAttribute("href") //Eliminar atributos
+
+      //Modificar atributos de CSS (propiedad style, classlist)
+      texto.style.color = "green";
+
+      //ClassList lo que me permite es ver la lista de clases que tiene ese elemento
+      const texto2 = document.getElementById("texto2");
+      console.log(texto2.classList);
+
+      //Agregar clase a un elemento
+      texto2.classList.add("fondo");
+
+      //Quitar clase a un elemento
+      texto2.classList.remove("negrita");
+
+      //Consultar si tiene una determinada clase
+      console.log(texto2.classList.contains("verde"));
+
+      //Invertir clase (si no existe clase, la agrega. Si existe, la quita)
+      texto2.classList.toggle("negrita");
+    </script>
+  </body>
+</html>

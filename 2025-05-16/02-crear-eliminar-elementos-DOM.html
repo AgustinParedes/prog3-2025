@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear y eliminar elementos de DOM</title>
+  </head>
+  <body>
+    <h1>Lista</h1>
+    <ul id="lista">
+      <li>UNO</li>
+      <li id="eliminado">ESTE ELEMENTO SE ELIMINARÄ</li>
+    </ul>
+
+    <script>
+      //Crear elemento
+      const lista = document.getElementById("lista");
+      const nuevaLista = document.createElement("li");
+      nuevaLista.innerHTML = "nuevo li";
+
+      //Agregar ese elemento al HTML dentro del elemento "lista"
+      lista.appendChild(nuevaLista);
+
+      //Crear un párrafo (nuevo elemento)
+      const parrafo = document.createElement("p");
+      parrafo.innerHTML = "Esto es un párrafo creado manualmente ahre";
+      document.body.appendChild(parrafo);
+
+      //Crear un encabezado (título)
+      const titulo = document.createElement("h1");
+      titulo.innerHTML = "Este título fue hecho a mano papá";
+      document.body.appendChild(titulo);
+
+      //Eliminar un elemento
+      const elemento = document.getElementById("eliminado");
+      elemento.remove();
+    </script>
+  </body>
+</html>
