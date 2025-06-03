@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventos</title>
+  </head>
+  <body>
+    <h1>Título</h1>
+    <p id="texto">Un texto</p>
+    <button id="saludar">Saludar</button>
+
+    <script>
+      //Accedemos al elemento id = "saludar"
+      const saludar = document.getElementById("saludar");
+      const texto = document.getElementById("texto");
+
+      //Creamos la función que accede el evento "click"
+      function handleClick() {
+        console.log("Hola con el evento");
+
+        texto.innerText = "Hola mundoooooooo";
+      }
+
+      //Conectamos el evento "click" con addEventListener
+      saludar.addEventListener("click", handleClick); //2 parámetros se necesitan, 1° evento 2° referencia a función
+
+      //Otra manera de hacer evento, conectado con una función
+      //Closures
+      let contador = 0;
+      saludar.addEventListener("mouseover", () => {
+        saludar.style.backgroundColor = "orange";
+        saludar.innerText = "Presioname!" + contador;
+        contador++;
+      });
+
+      saludar.addEventListener("mouseout", () => {
+        saludar.style.backgroundColor = "yellow";
+        saludar.innerText = "Saludado!!!!";
+      });
+    </script>
+  </body>
+</html>
