@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+  </head>
+  <body>
+    <h1>Cargar Usuario</h1>
+    <form id="formulario">
+      <fieldset>
+        <legend>Datos</legend>
+        <div>
+          <label for="apellido">Apellido</label>
+          <input id="apellido" name="apellido" type="text" />
+        </div>
+        <div>
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" />
+        </div>
+        <div>
+          <label for="edad">Edad</label>
+          <input type="number" id="edad" min="1" max="100" />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Competencias</legend>
+        <div>
+          <label for="idioma">Idioma</label> <br />
+          <label for=""> <input type="checkbox" value="es" id="idioma" name="idioma" /> Español </label>
+          <label for=""> <input type="checkbox" value="en" name="idioma" /> Inglés </label>
+          <label for=""> <input type="checkbox" value="fr" name="idioma" /> Francés </label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Altura</legend>
+        <label> <input type="radio" name="altura" value="<1.60" />Menor a 1.60</label>
+        <label> <input type="radio" name="altura" value="1.60-1.80" />Mayor a 1.60 menor a 1.80</label>
+      </fieldset>
+      <input type="submit" />
+      <input type="reset" />
+    </form>
+
+    <script>
+      const formulario = document.getElementById("formulario");
+
+      formulario.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        console.log("español: ", formulario.elements.idioma[0].checked);
+        console.log("inglés: : ", formulario.elements.idioma[1].checked);
+        console.log("frances: ", formulario.elements.idioma[2].checked);
+        console.log("altura: ", formulario.elements.altura.value);
+      });
+    </script>
+  </body>
+</html>

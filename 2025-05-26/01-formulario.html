@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario</title>
+  </head>
+  <body>
+    <h1>Cargar usuario</h1>
+
+    <form id="formulario">
+      <div>
+        <label for="apellido">Apellido</label>
+        <input id="apellido" name="apellido" type="text" />
+      </div>
+      <div>
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" />
+      </div>
+
+      <div>
+        <label for="edad">Edad</label>
+        <input type="number" name="edad" id="edad" />
+      </div>
+
+      <div>
+        <label for="contraseña">Constraseña</label>
+        <input type="password" name="constraseña" id="password" minlength="8" />
+        <button id="mostrarPass">Mostrar</button>
+        <!-- <label for="masculino">Masculino</label>
+        <input type="radio" />
+        <label for="femenino">Femenino</label>
+        <input type="radio" /> -->
+      </div>
+
+      <!-- <button type="submit">Cargar</button> -->
+      <input type="submit" name="" id="" />
+    </form>
+
+    <script>
+      const formulario = document.getElementById("formulario");
+      const mostrar = document.getElementById("mostrarPass");
+
+      mostrarPass.addEventListener("click", () => {
+        const password = document.getElementById("password");
+        if (password.getAttribute("type") === "password") {
+          password.setAttribute("type", "text");
+          mostrarPass.innerText = "Ocultar";
+        } else {
+          password.setAttribute("type", "password");
+          mostrarPass.innerText = "Mostrar";
+        }
+      });
+
+      formulario.addEventListener("submit", (e) => {
+        //Prevenimos que el formulario envíe datos de manera automática
+        e.preventDefault();
+
+        //Aquí se agregan las validaciones del cliente
+        console.log("Cargar datos");
+
+        console.log(formulario.elements); //accedo a todas las propiedades del formulario
+        console.log("apellido: ", formulario.elements.apellido);
+        console.log("nombre :", formulario.elements.nombre);
+
+        console.log("apellido: ", formulario.elements.apellido.value); //acccedo al valor que tiene el elemento
+        console.log("nombre :", formulario.elements.nombre.value);
+        console.log("edad: ", formulario.elements.edad.value);
+        console.log("edad arreglo: ", formulario.elements[2].value); //llamando a elementos con arreglos
+      });
+    </script>
+  </body>
+</html>
