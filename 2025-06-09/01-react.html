@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mi Primera App en React</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // Definición del Componente Funcional
+      function App() {
+        return (
+          <div>
+            <Saludo />
+            <Texto />
+          </div>
+        );
+      }
+      function Saludo() {
+        return <h1>¡Hola, Mundo desde un Componente Funcional!</h1>;
+      }
+
+      function Texto() {
+        return <p>Hola desde la etiqueta "p"</p>;
+      }
+
+      //Renderizar el componente en el div 'root'
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+
+      //   const container = document.getElementById("root");
+      //   const root = ReactDOM.createRoot(container);
+      //   root.render(<App />);
+    </script>
+  </body>
+</html>

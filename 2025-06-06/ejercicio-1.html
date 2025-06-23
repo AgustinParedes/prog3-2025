@@ -1,0 +1,97 @@
+<!-- 1- Crear un formulario de registro con campos para nombre, email y contraseña. Usando JavaScript, validar que: 
+ • Ningún campo esté vacío. 
+ • El email tenga un formato válido (contenga “@” y “.”). 
+ • La contraseña tenga al menos 8 caracteres. Si la validación falla, muestra un mensaje de error específico debajo del campo correspondiente en rojo. 
+ Si es exitosa, muestra una alerta de "Registro exitoso" en verde. -->
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1</title>
+    <style>
+      .error {
+        color: red;
+      }
+      .registro-exitoso {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ejercicio 1</h1>
+    <form id="formulario">
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" />
+        <div id="error-nombre" class="error"></div>
+      </div>
+
+      <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" />
+        <div id="error-email" class="error"></div>
+      </div>
+
+      <div>
+        <label for="contraseña">Contraseña:</label>
+        <input type="password" id="contraseña" name="contraseña" />
+        <div id="error-contraseña" class="error"></div>
+      </div>
+
+      <input type="submit" />
+    </form>
+
+    <div id="registro-exitoso" class="registro-exitoso"></div>
+
+    <script>
+      const formulario = document.getElementById("formulario");
+      const registroExitoso = document.getElementById("registro-exitoso");
+      const errorNombre = document.getElementById("error-nombre");
+      const errorEmail = document.getElementById("error-email");
+      const errorContraseña = document.getElementById("error-contraseña");
+
+      formulario.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        //Limpiar mensajes
+        errorNombre.innerText = "";
+        errorEmail.innerText = "";
+        errorContraseña.innerText = "";
+
+        let esValido = true;
+
+        //Validar nombre
+        const nombre = formulario.elements.nombre.value;
+        if (!nombre) {
+          esValido = false;
+          errorNombre.innerText = "nombre vacío";
+        }
+
+        //Validar email
+        const email = formulario.elements.email.value;
+        if (!email) {
+          esValido = false;
+          errorEmail.innerText = "email vacío";
+        } else if (!email.includes("@") || !email.includes(".")) {
+          errorEmail.innerText = "faltan carácteres obligatorios";
+        }
+
+        //Validar contraseña
+        const contraseña = formulario.elements.contraseña.value;
+        if (!contraseña) {
+          esValido = false;
+          errorContraseña.innerText = "contraseña vacía";
+        } else if (contraseña.length < 8) {
+          errorContraseña.innerText = "debe tener mas de 8 carácteres";
+        }
+
+        //Mostrar mensaje de éxito
+        if (esValido) {
+          registroExitoso.innerText = "Registro Exitoso.";
+        }
+      });
+    </script>
+  </body>
+</html>
